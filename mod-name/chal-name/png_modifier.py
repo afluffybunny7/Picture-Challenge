@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0, "/challenge/deps")
 from PIL import Image
 from PIL.PngImagePlugin import PngInfo
 import yaml
@@ -8,9 +10,9 @@ meta_data_attributes = config["Meta Data Attributes (attribute1, attribute2, ...
 meta_data_values = config["Meta Data Values (Value1,Value2, ... [At least as many as Meta Data Attributes])"].split(",")
 flag_attr = config["Attribute With The Flag"]
 image_name = config["Image Name"]
-new_name = "./" + image_name
+new_name = "/challenge/" + image_name
 # Open an existing PNG file
-image = Image.open("input/CP_wallpaper.jpg")
+image = Image.open("/challenge/input/CP_wallpaper.jpg")
 
 # Create a new PngInfo object to hold metadata
 metadata = PngInfo()
