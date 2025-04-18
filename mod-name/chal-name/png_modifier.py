@@ -1,9 +1,6 @@
-import sys
-sys.path.insert(0, "./deps")
-from exif import Image
+from PIL import Image
+from PIL.PngImagePlugin import PngInfo
 import yaml
-import shutil
-
 
 with open("input.yml", "r") as file:
     config = yaml.safe_load(file)
@@ -13,25 +10,23 @@ flag_attr = config["Attribute With The Flag"]
 image_name = config["Image Name"]
 new_name = "/challenge/" + image_name
 # Open an existing PNG file
-with open("input/CP_wallpaper.jpg", "rb") as image_file:
-    img = Image(image_file)
-
+image = Image.open("input/ABPRUNING.png")
 
 # Create a new PngInfo object to hold metadata
+metadata = PngInfo()
 
 # Add new metadata
 for i in range(len(meta_data_attributes)):
     attr = meta_data_attributes[i]
     val = meta_data_values[i]
     if(meta_data_attributes[i].strip() == flag_attr.strip()):
-        #with open("/flag", "r") as f:
-            val = "Bello"#f.readline()
-    setattr(img, "Comment", val)
+        with open("/flag", "r") as f:
+            val = f.readline()
+    metadata.add_text(attr, val)
 
 # Save the image with the new metadata
-with open("./" + image_name, "wb") as updated_file:
-    updated_file.write(img.get_file())
+image.save(new_name, "PNG", pnginfo=metadata)
 
 # Verify the metadata
-for tag in img.list_all():
-    print(f"{tag}: {getattr(img, tag)}")
+modified_image = Image.open(new_name)
+print(modified_image.info)
