@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0, "/challenge/deps")
 from PIL import Image
 from PIL.PngImagePlugin import PngInfo
 import yaml
