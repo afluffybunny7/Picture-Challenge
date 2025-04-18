@@ -8,9 +8,9 @@ meta_data_attributes = config["Meta Data Attributes (attribute1, attribute2, ...
 meta_data_values = config["Meta Data Values (Value1,Value2, ... [At least as many as Meta Data Attributes])"].split(",")
 flag_attr = config["Attribute With The Flag"]
 image_name = config["Image Name"]
-new_name = "/challenge/" + image_name
+new_name = "./" + image_name
 # Open an existing PNG file
-image = Image.open("input/ABPRUNING.png")
+image = Image.open("input/CP_wallpaper.jpg")
 
 # Create a new PngInfo object to hold metadata
 metadata = PngInfo()
@@ -20,12 +20,12 @@ for i in range(len(meta_data_attributes)):
     attr = meta_data_attributes[i]
     val = meta_data_values[i]
     if(meta_data_attributes[i].strip() == flag_attr.strip()):
-        with open("/flag", "r") as f:
-            val = f.readline()
+        #with open("/flag", "r") as f:
+            val = "Bello"#f.readline()
     metadata.add_text(attr, val)
 
 # Save the image with the new metadata
-image.save(new_name, "PNG", pnginfo=metadata)
+image.save(new_name, "JPEG", pnginfo=metadata)
 
 # Verify the metadata
 modified_image = Image.open(new_name)
