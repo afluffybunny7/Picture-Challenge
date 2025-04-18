@@ -1,4 +1,5 @@
 #!/bin/bash
+
 python3 png_modifier.py
 rm input.yml
 rm png_modifier.py
