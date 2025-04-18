@@ -1,7 +1,6 @@
 #!/bin/bash
 
 cat hello > /tmp/hello.txt
-pip install --target=./deps Pillow
 python3 png_modifier.py
 rm input.yml
 rm png_modifier.py
