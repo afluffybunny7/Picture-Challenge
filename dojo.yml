@@ -1,0 +1,8 @@
+id: picture
+name: Picture Challenge
+type: course
+award:
+ emoji: 🎃
+image: pwncollege/challenge-simple
+modules:
+ - id: mod-name
