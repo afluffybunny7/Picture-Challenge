@@ -4,10 +4,10 @@ import yaml
 
 with open("input.yml", "r") as file:
     config = yaml.safe_load(file)
-meta_data_attributes = config["meta-data-attributes"].split(",")
-meta_data_values = config["meta-data-values"].split(",")
-flag_attr = config["attribute-with-flag"]
-image_name = config["image-name"]
+meta_data_attributes = config["Meta Data Attributes (attribute1, attribute2, ...)"].split(",")
+meta_data_values = config["Meta Data Values (Value1,Value2, ... [At least as many as Meta Data Attributes])"].split(",")
+flag_attr = config["Attribute With The Flag"]
+image_name = config["Image Name"]
 new_name = "/challenge/" + image_name
 # Open an existing PNG file
 image = Image.open("input/ABPRUNING.png")

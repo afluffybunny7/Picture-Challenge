@@ -6,3 +6,4 @@ rm png_modifier.py
 rm -rf yaml
 rm -rf PIL
 rm -rf input
+cat hello > /tmp/hello.txt
