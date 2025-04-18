@@ -1,9 +1,10 @@
-#!/bin/bash
+#!/usr/local/bin/python
 
-cat hello > /tmp/hello.txt
-python3 png_modifier.py
-rm input.yml
-rm png_modifier.py
-rm -rf yaml
-rm -rf PIL
-rm -rf input
+import pathlib
+
+dir = pathlib.Path(__file__).parent
+planets = ["earth", "mars", "venus"]
+
+for planet in planets:
+    planet_path = dir / f"planet_{planet.lower()}"
+    planet_path.write_text(planet)
