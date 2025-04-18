@@ -1,4 +1,4 @@
-Attribute With The Flag: flag
-Image Name: pic
-Meta Data Attributes (attribute1, attribute2, ...): flag
-Meta Data Values (Value1,Value2, ... [At least as many as Meta Data Attributes]): flag
+Attribute With The Flag: me
+Image Name: picture
+Meta Data Attributes (attribute1, attribute2, ...): me
+Meta Data Values (Value1,Value2, ... [At least as many as Meta Data Attributes]): me
